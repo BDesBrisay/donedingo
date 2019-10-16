@@ -7,9 +7,9 @@ const Dash = () => (
   <div className={styles.contain}>
     <header className={styles.header}>
       <h3>Donedingo</h3>
-      <Link to="/">
+      <Link to="/Profile">
         <button>
-          SIGN OUT
+          Profile
         </button>
       </Link>
     </header>
