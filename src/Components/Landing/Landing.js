@@ -4,6 +4,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import withContext from '../Context/withContext';
 import { isSignedIn, signIn } from '../../utils/userState';
 import styles from './Landing.module.css';
+import logo from '../../images/logo.png';
 
 class Landing extends React.Component {
   constructor(props) {
@@ -76,9 +77,15 @@ class Landing extends React.Component {
   }
 
   render() {
+    console.log(document.querySelector('button.firebaseui-idp-button'));
     return (
       <div className={styles.contain}>
         <div className={styles.header}>
+          <img
+            src={logo}
+            className={styles.icon}
+            alt=""
+          />
           <h1 className={styles.logo}>Donedingo</h1>
           <p className={styles.tagline}>Your private personal project tracker.</p>
           {this.state.private && 

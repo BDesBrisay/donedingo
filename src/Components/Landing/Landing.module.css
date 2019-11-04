@@ -10,7 +10,13 @@
   align-items: center;
   justify-content: center;
   padding: 120px 10vw;
-  background: #ffaf7b;
+  text-align: center;
+  height: 90vh;
+  box-sizing: border-box;
+}
+.icon {
+  height: 100px;
+  width: 100px;
 }
 .logo {
   font-size: 4rem;
@@ -20,8 +26,11 @@
 }
 .tagline {
   font-size: 1.5rem;
-  color: #345;
+  color: #567;
   margin: 12px 24px;
+}
+button.firebaseui-idp-button {
+  background: red !important;
 }
 
 @media screen and (max-width: 800px) {
