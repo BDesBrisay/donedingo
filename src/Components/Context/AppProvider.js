@@ -1,6 +1,6 @@
-import React from './node_modules/react';
-import * as firebase from './node_modules/firebase/app';
-import './node_modules/firebase/auth';
+import React from 'react';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 // import userAuth from '../../firebase/userAuth';
 

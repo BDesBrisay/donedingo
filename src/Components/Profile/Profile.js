@@ -1,17 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
+import { signOut } from '../../utils/userState';
+import withContext from '../Context/withContext';
 import styles from './Profile.module.css';
 
-const Profile = () => (
-  <div>
-    PROFILE
-    <Link to="/">
-      <button>
-        SIGN OUT
-      </button>
-    </Link>
-  </div>
-)
+class Profile extends React.Component {
+  firebase = this.props.context.firebase
 
-export default Profile;
+  render() {
+    const { history } = this.props;
+    return (
+      <div>
+        PROFILE
+        <button onClick={() => signOut(this.firebase, history)}>
+          SIGN OUT
+        </button>
+      </div>
+    )
+  }
+}
+
+export default withContext(Profile);

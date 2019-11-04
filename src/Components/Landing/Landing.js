@@ -1,5 +1,5 @@
-import React from './node_modules/react';
-import StyledFirebaseAuth from './node_modules/react-firebaseui/StyledFirebaseAuth';
+import React from 'react';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 import withContext from '../Context/withContext';
 import { isSignedIn, signIn } from '../../utils/userState';
@@ -9,7 +9,7 @@ class Landing extends React.Component {
   constructor(props) {
     super(props);
 
-    if (isSignedIn()) props.history.push('/Home');
+    if (isSignedIn()) props.history.push('/Dash');
 
     let priv = false;
     try {
@@ -23,8 +23,6 @@ class Landing extends React.Component {
       loading: false,
       private: priv
     }
-
-    console.log(this.props)
   }
 
   firebase = this.props.context.firebase;
@@ -63,10 +61,10 @@ class Landing extends React.Component {
       const token = await data.getIdToken(true);
       let user = data.providerData ? data.providerData[0] : {};
 
-      user = await context.userAuth(user);
+      // user = await context.userAuth(user);
       signIn({ token, user });
 
-      history.push('/Home');
+      history.push('/Dash');
     }
     catch (error) {
       console.error(error);
