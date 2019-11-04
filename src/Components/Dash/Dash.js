@@ -2,11 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Dash.module.css';
+import logo from '../../images/logo.png';
 
 const Dash = () => (
   <div className={styles.contain}>
     <header className={styles.header}>
-      <h3>Donedingo</h3>
+      <img 
+        src={logo}
+        className={styles.logo}
+        alt=""
+      />
       <Link to="/Profile">
         <button>
           Profile
