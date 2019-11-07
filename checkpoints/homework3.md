@@ -13,7 +13,6 @@ Oct 18th
 2. All routes created and have links to others (Landing, Dashboard, Profile)
 3. Each page has a module.css file attached to it
 4. Basic three column layout on the dashboard
-5. Name, logo, and favicon added
 
 ### Plan for Next Deadline (Nov 8):
 1. Firebase Auth set up
@@ -21,6 +20,7 @@ Oct 18th
 3. Profile info displayed
 4. Firebase DB project setup in the firebase console
 5. Basic UI elements on dashboard (inputs and buttons, no functionality)
+6. Name, logo, and favicon
 
 ### Screenshots
 
