@@ -25,13 +25,15 @@ Oct 18th
 ### Screenshots
 
 Landing Page
-![Image of Landing Page]
-(https://github.com/BDesBrisay/donedingo/blob/master/checkpoints/images/hw3-landing.png?raw=true)
+
+![Image of Landing Page](https://github.com/BDesBrisay/donedingo/blob/master/checkpoints/images/hw3-landing.png?raw=true)
+
 
 Dashboard
-![Dashboard]
-(https://github.com/BDesBrisay/donedingo/blob/master/checkpoints/images/hw3-dash.png?raw=true)
+
+![Dashboard](https://github.com/BDesBrisay/donedingo/blob/master/checkpoints/images/hw3-dash.png?raw=true)
+
 
 Profile
-![Profile]
-(https://github.com/BDesBrisay/donedingo/blob/master/checkpoints/images/hw3-profile.png?raw=true)
+
+![Profile](https://github.com/BDesBrisay/donedingo/blob/master/checkpoints/images/hw3-profile.png?raw=true)
