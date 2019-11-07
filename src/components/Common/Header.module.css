@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--gradient);
+  color: #fff;
+  padding: 0 24px;
+  box-sizing: border-box;
+  height: 70px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 4;
+}
+.logo {
+  height: 50px;
+}

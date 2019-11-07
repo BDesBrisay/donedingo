@@ -77,7 +77,6 @@ class Landing extends React.Component {
   }
 
   render() {
-    console.log(document.querySelector('button.firebaseui-idp-button'));
     return (
       <div className={styles.contain}>
         <div className={styles.header}>

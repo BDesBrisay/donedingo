@@ -1,23 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import styles from './Dash.module.css';
-import logo from '../../images/logo.png';
+
+import Header from '../Common/Header';
 
 const Dash = () => (
   <div className={styles.contain}>
-    <header className={styles.header}>
-      <img 
-        src={logo}
-        className={styles.logo}
-        alt=""
-      />
-      <Link to="/Profile">
-        <button>
-          Profile
-        </button>
-      </Link>
-    </header>
+    <Header page="dash" />
     <div className={styles.grid}>
       <div className={styles.col}>
         <h4>Objectives</h4>

@@ -1,5 +1,6 @@
 export default async function userAuth({ users, user = {} }) {
   try {
+    // User structure
     const body = {
       id: user.uid,
       name: user.displayName,
@@ -7,19 +8,19 @@ export default async function userAuth({ users, user = {} }) {
       email: user.email
     };
 
-    console.log(users)
-
+    // Check if user exists
     await users.where('id', '==', body.id)
       .get()
       .then(async (snapshot) => {
-        console.log(snapshot)
         if (snapshot.empty) {
+          // Create User
           await users.doc(body.id).set(body);
           console.log('ADDED USER', body)
           return body;
         }
         else {
-          console.log('RETURN USER', body)
+          // Exisiting User
+          console.log('RETURNING USER', body)
           return snapshot;
         }
       });
