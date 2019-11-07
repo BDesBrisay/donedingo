@@ -14,7 +14,7 @@ export default async function userAuth({ users, user = {} }) {
       .then(async (snapshot) => {
         console.log(snapshot)
         if (snapshot.empty) {
-          await users.add(body);
+          await users.doc(body.id).set(body);
           console.log('ADDED USER', body)
           return body;
         }
