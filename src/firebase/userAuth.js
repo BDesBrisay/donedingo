@@ -3,7 +3,7 @@ import { setUser } from "../utils/userState";
 async function userAuth({ users, user = {} }) {
   try {
     // setup user structure
-    const body = {
+    let body = {
       id: user.uid,
       name: user.displayName,
       profileImage: user.photoURL,
