@@ -1,31 +1,29 @@
-export default async function userAuth({ users, user = {} }) {
+import { setUser } from "../utils/userState";
+
+async function userAuth({ users, user = {} }) {
   try {
-    // User structure
     const body = {
       id: user.uid,
       name: user.displayName,
       profileImage: user.photoURL,
       email: user.email
     };
+    const doc = users.doc(body.id);
+    const get = await doc.get();
 
-    // Check if user exists
-    await users.where('id', '==', body.id)
-      .get()
-      .then(async (snapshot) => {
-        if (snapshot.empty) {
-          // Create User
-          await users.doc(body.id).set(body);
-          console.log('ADDED USER', body)
-          return body;
-        }
-        else {
-          // Exisiting User
-          console.log('RETURNING USER', body)
-          return snapshot;
-        }
-      });
+    if (get.exists) {
+      const data = await get.data();
+      setUser(data);
+      return data;
+    }
+    else {
+      await doc.set(body);
+      return body;
+    }
   }
   catch (e) {
     console.error(e);
   }
 }
+
+export default userAuth;

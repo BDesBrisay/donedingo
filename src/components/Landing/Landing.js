@@ -62,7 +62,8 @@ class Landing extends React.Component {
       const token = await data.getIdToken(true);
       let user = data.providerData ? data.providerData[0] : {};
 
-      await context.userAuth(user);
+      user = await context.userAuth(user);
+      console.log(user)
       signIn({ token, user });
 
       history.push('/Dash');
