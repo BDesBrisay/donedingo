@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './Components/App/App';
+import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 
-import { AppProvider } from './Components/Context/AppProvider';
+import { AppProvider } from './components/Context/AppProvider';
 
 ReactDOM.render(
   <AppProvider>
