@@ -19,9 +19,9 @@ Nov 8th 2019
 7. UserAuth DB action
 
 ### Plan for Next Deadline (Nov 22):
-1. Dashboard item inputs (for each: objective, key-result, task)
-3. CRUD DB actions for each dashboard item
-4. Basic interface objects for each dashboard item
+1. Functional dashboard item inputs (for each: objective, key-result, task)
+2. CRUD DB actions for each dashboard item
+3. Basic interface objects for each dashboard item
 
 ### Screenshots
 
