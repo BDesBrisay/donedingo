@@ -27,7 +27,7 @@ Nov 8th 2019
 
 Landing Page
 
-![Image of Landing Page](https://github.com/BDesBrisay/donedingo/blob/master/checkpoints/images/hw3-landing.png?raw=true)
+![Image of Landing Page](https://github.com/BDesBrisay/donedingo/blob/master/checkpoints/images/hw4-landing.png?raw=true)
 
 
 Dashboard
