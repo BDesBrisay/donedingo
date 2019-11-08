@@ -1,6 +1,6 @@
 # Homework 3 Checkpoint
 Bryce DesBrisay
-Oct 18th
+Oct 18th 2019
 
 ### Proposed Plan:
 1. React frontend setup running locally
