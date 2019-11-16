@@ -9,10 +9,10 @@ const Dash = () => (
     <Header page="dash" />
     <div className={styles.grid}>
       <div className={styles.col}>
-        <h4>Objectives</h4>
+        <h4>Goals</h4>
       </div>
       <div className={styles.col}>
-        <h4>Key Results</h4>
+        <h4>Plan</h4>
       </div>
       <div className={styles.col}>
         <h4>Tasks</h4>

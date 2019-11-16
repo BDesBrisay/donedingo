@@ -15,6 +15,9 @@ code {
 :root {
   /* --gradient: linear-gradient(100deg, #3a1c71, #814385, #d76d77, #ffaf7b); */
   --gradient: linear-gradient(100deg, #0c044c, #672b6a, #d76d77, #ffaf7b);
+  --gradient-vert: linear-gradient(180deg, #0c044c, #302b63);
+  --gradient-horiz: linear-gradient(90deg, #0c044c, #302b63);
+  --gradient-landing: linear-gradient(15deg, #0f0c29,#302b63);
   --orange: #ffaf7b;
   --darkorange: #d76d77;
 }
