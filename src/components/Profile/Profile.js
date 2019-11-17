@@ -14,7 +14,7 @@ class Profile extends React.Component {
   render() {
     const { history } = this.props;
     return (
-      <div>
+      <div className={styles.contain}>
         <Header page="profile" />
         <div className={styles.body}>
           <img 

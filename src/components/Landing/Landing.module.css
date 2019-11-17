@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background: linear-gradient(15deg, #0f0c29,#302b63);
+  background: var(--gradient-landing);
 }
 .header {
   display: flex;

@@ -2,20 +2,46 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--gradient);
   color: #fff;
-  padding: 0 24px;
   box-sizing: border-box;
-  height: 70px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 2px 0 6px rgba(0,0,0,0.2);
   position: relative;
   z-index: 4;
+  flex-direction: row;
+  padding: 0 20px;
+  height: 60px;
+  width: 100%;
+  background: var(--gradient-horiz);
 }
-.logo, .header > a {
-  height: 50px;
+.logo {
+  height: 45px;
 }
-.profile {
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
+.profile, .header > a {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 420px) {
+  .header {
+    height: 70px;
+  }
+  .logo {
+    height: 50px;
+  }
+  .profile, .header > a {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    flex-direction: column;
+    width: 80px;
+    padding: 20px 0;
+    background: var(--gradient-vert);
+    height: 100%;
+  }
 }

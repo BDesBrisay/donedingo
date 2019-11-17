@@ -1,0 +1,56 @@
+
+.col {
+  flex: 1;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+  overflow-y: auto;
+  border-right: 1px solid transparent;
+  transition: all 0.4s;
+}
+.col:nth-child(1) {
+  background: linear-gradient(180deg, #f0f4f8, white);
+}
+.col:nth-child(2) {
+  background: #fff;
+}
+.col:nth-child(3) {
+  background: linear-gradient(180deg, #f0f4f8, white);
+}
+.activeCol {
+  composes: col;
+  box-shadow: inset -3px 0px 8px -6px #0c044c;
+  border-color: #0c044c;
+}
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.title {
+  composes: title from './Dash.module.css';
+}
+.createButton {
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
+  box-shadow: var(--shadow1);
+  border: none;
+  outline: none;
+  color: var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+.createButton:hover {
+  background: #f8f8f8;
+}
