@@ -27,4 +27,7 @@
   align-items: center;
   padding: 24px 36px;
   box-sizing: border-box;
+  width: 95%;
+  max-width: 300px;
+  margin-bottom: 100px;
 }

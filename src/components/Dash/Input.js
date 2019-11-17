@@ -30,7 +30,11 @@ class Input extends React.Component {
 
       if (!value) throw new Error('No Title');
 
-      const post = { title: value };
+      const post = {
+        title: value,
+        createdAt: new Date(),
+        createdBy: this.user.id
+      };
       add && add(post);
 
       const res = await createPost({
@@ -48,7 +52,8 @@ class Input extends React.Component {
       }
     }
     catch (e) {
-      this.setState({ err: e.message })
+      // this.setState({ err: e.message })
+      console.error(e);
     }
   }
 

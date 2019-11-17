@@ -4,9 +4,11 @@ import styles from './Goals.module.css';
 import withContext from '../Context/withContext';
 
 import InputModal from './InputModal';
+import GoalCard from './GoalCard'
 
 class Goals extends React.Component {
   state = {
+    active: -1,
     loading: false,
     items: [],
     showModal: false
@@ -38,6 +40,12 @@ class Goals extends React.Component {
   add = (post) => {
     this.setState({
       items: [...this.state.items, post]
+    });
+  }
+
+  selectGoal = (id) => {
+    this.setState({
+      active: id
     });
   }
 /*
@@ -96,7 +104,12 @@ class Goals extends React.Component {
           ? <h4>Loading...</h4>
           : items.length
             ? items.map((item, i) => (
-                <h4 key={i}>{item.title}</h4>
+                <GoalCard 
+                  key={i}
+                  goal={item}
+                  select={this.selectGoal}
+                  active={this.state.active === item.id}
+                />
               ))
             : <h4>No items to show</h4>
         }

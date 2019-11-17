@@ -1,0 +1,21 @@
+.contain {
+  background: white;
+  width: 100%;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  margin: 6px 0;
+  box-shadow: 0 2px 6px #ddd;
+  border-radius: 4px;
+}
+.active {
+  width: calc(100% + 24px);
+  border-radius: 4px 0 0 4px;
+  background: var(--gradient-horiz);
+  color: white;
+}
+.contain > h4 {
+  margin: 0;
+}
+.contain > p {
+  margin: 0;
+}
