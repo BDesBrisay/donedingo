@@ -80,7 +80,7 @@ class Goals extends React.Component {
   }
 
   render() {
-    const { history, context, user } = this.props;
+    // const { history, context, user } = this.props;
     const { 
       items = [],
       loading,

@@ -4,7 +4,7 @@ import styles from './Dash.module.css';
 import { getUser } from '../../utils/userState';
 
 import Header from '../Common/Header';
-import Goals from './Goals';
+// import Goals from './Goals';
 import Column from './Column';
 import GoalCard from './GoalCard';
 
