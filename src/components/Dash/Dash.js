@@ -5,6 +5,8 @@ import { getUser } from '../../utils/userState';
 
 import Header from '../Common/Header';
 import Goals from './Goals';
+import Column from './Column';
+import GoalCard from './GoalCard';
 
 const Dash = ({ history }) => {
   const user = getUser();
@@ -13,16 +15,27 @@ const Dash = ({ history }) => {
     <div className={styles.contain}>
       <Header page="dash" />
       <div className={styles.grid}>
-        <Goals 
+        <Column 
           history={history}
           user={user}
+          title="Goals"
+          type="Goal"
+          CardComponent={GoalCard}
+        /> 
+        <Column 
+          history={history}
+          user={user}
+          title="Plans"
+          type="Plan"
+          CardComponent={GoalCard}
         />
-        <div className={styles.col}>
-          <h4>Plan</h4>
-        </div>
-        <div className={styles.col}>
-          <h4>Tasks</h4>
-        </div>
+        <Column 
+          history={history}
+          user={user}
+          title="Tasks"
+          type="Task"
+          CardComponent={GoalCard}
+        />
       </div>
     </div>
   )

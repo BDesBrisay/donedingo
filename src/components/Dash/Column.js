@@ -1,12 +1,11 @@
 import React from 'react';
 
-import styles from './Goals.module.css';
+import styles from './Column.module.css';
 import withContext from '../Context/withContext';
 
 import InputModal from './InputModal';
-import GoalCard from './GoalCard'
 
-class Goals extends React.Component {
+class Column extends React.Component {
   state = {
     active: -1,
     loading: false,
@@ -18,17 +17,16 @@ class Goals extends React.Component {
     this.setState({ loading: true });
 
     const {
-      user, 
-      context: { 
-        getPosts
-      }
+      user,
+      type,
+      context: { getPosts }
     } = this.props;
 
     this.user = user;
 
     const items = await getPosts({
-      type: 'Goals',
-      id: user.id
+      id: user.id,
+      type
     });
 
     this.setState({
@@ -80,12 +78,16 @@ class Goals extends React.Component {
   }
 
   render() {
-    const { history, context, user } = this.props;
+    const {
+      type,
+      title,
+      CardComponent
+    } = this.props;
     const { 
       items = [],
       loading,
       showModal,
-      active
+      active,
     } = this.state;
 
     console.log(active, items)
@@ -98,7 +100,9 @@ class Goals extends React.Component {
         }
       >
         <div className={styles.header}>
-          <h1 className={styles.title}>Goals</h1>
+          <h1 className={styles.title}>
+            {title}
+          </h1>
           <button 
             onClick={this.toggleModal}
             className={styles.createButton}
@@ -110,13 +114,13 @@ class Goals extends React.Component {
           shown={showModal}
           add={this.add}
           close={this.toggleModal}
-          type="Goal"
+          type={type}
         />
         {loading
           ? <h4>Loading...</h4>
           : items.length
             ? items.map((item, i) => (
-                <GoalCard 
+                <CardComponent
                   key={i}
                   goal={item}
                   select={() => this.selectGoal(i)}
@@ -130,4 +134,4 @@ class Goals extends React.Component {
   }
 }
 
-export default withContext(Goals);
+export default withContext(Column);

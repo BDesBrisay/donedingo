@@ -32,7 +32,7 @@ class Input extends React.Component {
 
       const post = {
         title: value,
-        createdAt: new Date(),
+        createdAt: new Date().toUTCString(),
         createdBy: this.user.id
       };
       add && add(post);

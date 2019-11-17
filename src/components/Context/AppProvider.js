@@ -33,6 +33,8 @@ export class AppProvider extends React.Component {
     const db = firebase.firestore();
     const users = db.collection('users');
     const goals = db.collection('goals');
+    const plans = db.collection('plans');
+    const tasks = db.collection('tasks');
 
     // Set context state to be used elsewhere
     this.state = {
@@ -41,6 +43,8 @@ export class AppProvider extends React.Component {
       db,
       users,
       goals,
+      plans,
+      tasks,
       
       // Action functions
       userAuth: async ({ user }) => await userAuth({ 
@@ -62,8 +66,8 @@ export class AppProvider extends React.Component {
   dbFromType = (type) => {
     const first = type.charAt(0).toUpperCase();
     if (first === 'G') return this.state.goals;
-    // if (first === 'P') return this.state.plans;
-    // if (first === 'T') return this.state.tasks;
+    if (first === 'P') return this.state.plans;
+    if (first === 'T') return this.state.tasks;
   }
 
   render() {

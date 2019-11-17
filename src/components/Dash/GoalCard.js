@@ -1,4 +1,5 @@
 import React from 'react';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 import styles from './GoalCard.module.css';
 
@@ -7,9 +8,15 @@ const GoalCard = ({
   select, 
   active 
 }) => (
-  <div className={styles.contain}>
+  <div 
+    onClick={select}
+    className={active
+      ? styles.active
+      : styles.contain
+    }
+  >
     <h4>{goal.title}</h4>
-    <p>Created 4m ago</p>
+    <p>{formatDistanceToNow(new Date(goal.createdAt))}</p>
   </div>
 );
 
