@@ -8,7 +8,7 @@
   position: relative;
   z-index: 4;
   flex-direction: row;
-  padding: 0 24px;
+  padding: 0 20px;
   height: 60px;
   width: 100%;
   background: var(--gradient-horiz);
@@ -36,11 +36,11 @@
   }
 }
 
-@media screen and (min-width: 840px) {
+@media screen and (min-width: 1024px) {
   .header {
     flex-direction: column;
     width: 80px;
-    padding: 24px 0;
+    padding: 20px 0;
     background: var(--gradient-vert);
     height: 100%;
   }

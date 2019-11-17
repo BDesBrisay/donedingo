@@ -1,0 +1,3 @@
+.col {
+  composes: col from './Dash.module.css';
+}

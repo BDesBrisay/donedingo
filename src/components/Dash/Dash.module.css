@@ -46,7 +46,7 @@
   margin: 8px;
 }
 
-@media screen and (min-width: 840px) {
+@media screen and (min-width: 1024px) {
   .contain {
     flex-direction: row;
   }

@@ -4,6 +4,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 import userAuth from '../../firebase/userAuth';
+import createPost from '../../firebase/createPost';
 
 // Create React instance of context
 export const AppContext = React.createContext();
@@ -30,6 +31,7 @@ export class AppProvider extends React.Component {
     // Get reference to Firebase DB
     const db = firebase.firestore();
     const users = db.collection('users');
+    const goals = db.collection('goals');
 
     // Set context state to be used elsewhere
     this.state = {
@@ -37,10 +39,26 @@ export class AppProvider extends React.Component {
       firebase,
       db,
       users,
+      goals,
       
       // Action functions
-      userAuth: async (user) => await userAuth({ users, user })
+      userAuth: async (user) => await userAuth({ 
+        users, 
+        user 
+      }),
+      createPost: async (type, post, id) => await createPost({ 
+        posts: this.dbFromType(type), 
+        post, 
+        id 
+      })
     }
+  }
+
+  dbFromType = (type) => {
+    const first = type.charAt(0).toUpperCase();
+    if (first === 'G') return this.state.goals;
+    // if (first === 'P') return this.state.plans;
+    // if (first === 'T') return this.state.tasks;
   }
 
   render() {
