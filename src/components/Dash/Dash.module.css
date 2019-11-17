@@ -28,18 +28,15 @@
   justify-content: flex-start;
 }
 .col:nth-child(1) {
-  z-index: 3;
   background: linear-gradient(180deg, #f0f4f8, white);
 }
 .col:nth-child(2) {
-  z-index: 2;
   background: #fff;
 }
 .col:nth-child(3) {
-  z-index: 1;
   background: linear-gradient(180deg, #f0f4f8, white);
 }
-.col > h4 {
+.title {
   color: #302b63;
   font-size: 22px;
   line-height: 50px;
@@ -54,7 +51,7 @@
     height: 100%;
     width: calc(100% - 80px);
   }
-  .col > h4 {
+  .title {
     margin: 0 24px;
   }
 }

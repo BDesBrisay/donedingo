@@ -5,6 +5,7 @@ import 'firebase/firestore';
 
 import userAuth from '../../firebase/userAuth';
 import createPost from '../../firebase/createPost';
+import getPosts from '../../firebase/getPosts';
 
 // Create React instance of context
 export const AppContext = React.createContext();
@@ -42,14 +43,18 @@ export class AppProvider extends React.Component {
       goals,
       
       // Action functions
-      userAuth: async (user) => await userAuth({ 
+      userAuth: async ({ user }) => await userAuth({ 
         users, 
         user 
       }),
-      createPost: async (type, post, id) => await createPost({ 
+      createPost: async ({ type, post, id }) => await createPost({ 
         posts: this.dbFromType(type), 
         post, 
         id 
+      }),
+      getPosts: async ({ type, id }) => await getPosts({
+        posts: this.dbFromType(type),
+        id
       })
     }
   }

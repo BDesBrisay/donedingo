@@ -3,35 +3,34 @@ import React from 'react';
 import styles from './Goals.module.css';
 import withContext from '../Context/withContext';
 
-import Input from './Input';
+import InputModal from './InputModal';
 
 class Goals extends React.Component {
   state = {
     loading: false,
     items: [],
+    showModal: false
   }
-/*
+
   async componentDidMount() {
     this.setState({ loading: true });
 
     const {
       user, 
       context: { 
-        firebase, 
-        getPosts,
-        getProjects 
+        getPosts
       }
     } = this.props;
 
-    this.firebase = firebase;
     this.user = user;
 
-    const items = await getPosts(user.id);
-    const projects = await getProjects(user.groups);
+    const items = await getPosts({
+      type: 'Goals',
+      id: user.id
+    });
 
     this.setState({
       items,
-      projects,
       loading: false
     });
   }
@@ -41,7 +40,7 @@ class Goals extends React.Component {
       items: [...this.state.items, post]
     });
   }
-
+/*
   remove = async (post) => {
     const { items } = this.state;
     const { context } = this.props;
@@ -66,20 +65,41 @@ class Goals extends React.Component {
     await completePost(i, this.user.id);
   }
 */
+
+  toggleModal = () => {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  }
+
   render() {
     const { history, context, user } = this.props;
     const { 
       items = [],
-      loading 
+      loading,
+      showModal
     } = this.state;
 
     return (
       <div className={styles.col}>
-        <h1>Goals</h1>
-        <Input 
-          context={context}
-          user={user}
+        <h1 className={styles.title}>Goals</h1>
+        <button onClick={this.toggleModal}>
+          +
+        </button>
+        <InputModal
+          shown={showModal}
+          add={this.add}
+          close={this.toggleModal}
+          type="Goal"
         />
+        {loading
+          ? <h4>Loading...</h4>
+          : items.length
+            ? items.map((item, i) => (
+                <h4 key={i}>{item.title}</h4>
+              ))
+            : <h4>No items to show</h4>
+        }
       </div>
     )
   }

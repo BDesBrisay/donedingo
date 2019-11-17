@@ -1,3 +1,6 @@
 .col {
   composes: col from './Dash.module.css';
 }
+.title {
+  composes: title from './Dash.module.css';
+}
