@@ -1,6 +1,6 @@
 {
   "name": "donedingo",
-  "homepage" : "http://bdesbrisay.github.io/donedingo",
+  "homepage": "http://bdesbrisay.github.io/donedingo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
