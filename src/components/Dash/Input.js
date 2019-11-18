@@ -68,6 +68,8 @@ class Input extends React.Component {
             value={value}
             placeholder={`${type} Title`}
             onChange={this.onChange}
+            autoFocus={true}
+            id={`input-${type}`}
           />
           <button type="submit">
             +

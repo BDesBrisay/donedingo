@@ -71,17 +71,23 @@ class Column extends React.Component {
   }
 */
 
-  toggleModal = () => {
-    this.setState({
-      showModal: !this.state.showModal
-    });
+  toggleModal = (type) => {
+    const newShow = !this.state.showModal;
+    if (newShow) {
+      // this.refs.modal.input.field.focus();
+      const input = document.getElementById(`input-${type}`);
+      if (input) input.click();
+      console.log('FOCUSED', input, type);
+    }
+    this.setState({ showModal: newShow });
   }
 
   render() {
     const {
       type,
       title,
-      CardComponent
+      CardComponent,
+      disabled
     } = this.props;
     const { 
       items = [],
@@ -104,8 +110,9 @@ class Column extends React.Component {
             {title}
           </h1>
           <button 
-            onClick={this.toggleModal}
+            onClick={() => this.toggleModal(type)}
             className={styles.createButton}
+            disabled={disabled}
           >
             &#xFF0B;
           </button>
@@ -113,7 +120,7 @@ class Column extends React.Component {
         <InputModal
           shown={showModal}
           add={this.add}
-          close={this.toggleModal}
+          close={() => this.toggleModal(type)}
           type={type}
         />
         {loading
