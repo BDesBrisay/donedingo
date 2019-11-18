@@ -2,6 +2,7 @@ import React from 'react';
 
 import { getUser } from '../../utils/userState';
 import withContext from '../Context/withContext';
+import styles from './Input.module.css';
 
 class Input extends React.Component {
   state = {
@@ -28,6 +29,7 @@ class Input extends React.Component {
       const { createPost } = context;
       const { value } = this.state;
 
+      console.log(value, !!value)
       if (!value) throw new Error('No Title');
 
       const post = {
@@ -52,7 +54,7 @@ class Input extends React.Component {
       }
     }
     catch (e) {
-      // this.setState({ err: e.message })
+      this.setState({ err: e.message })
       console.error(e);
     }
   }
@@ -62,25 +64,30 @@ class Input extends React.Component {
     const { value, err } = this.state;
 
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <input
-            value={value}
-            placeholder={`${type} Title`}
-            onChange={this.onChange}
-            autoFocus={true}
-            id={`input-${type}`}
-          />
-          <button type="submit">
-            +
-          </button>
-        </form>
+      <form 
+        onSubmit={this.onSubmit}
+        className={styles.contain}
+      >
+        <input
+          value={value}
+          placeholder={`${type} Title`}
+          onChange={this.onChange}
+          autoFocus={true}
+          id={`input-${type}`}
+          className={styles.input}
+        />
         {err && 
-          <p style={{ color: 'red' }}>
+          <p className={styles.error}>
             {err}
           </p>
         }
-      </div>
+        <button 
+          type="submit"
+          className={styles.submit}
+        >
+          Create&nbsp;&nbsp;&#xFF0B;
+        </button>
+      </form>
     )
   }
 }

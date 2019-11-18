@@ -4,7 +4,7 @@
   padding: 12px 20px;
   box-sizing: border-box;
   margin: 6px 0;
-  box-shadow: 0 2px 6px #ddd;
+  box-shadow: var(--shadow1);
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s;

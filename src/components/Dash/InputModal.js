@@ -8,11 +8,10 @@ const InputModal = ({
   shown,
   type,
   add,
-  close,
-  text
+  close
 }) => {
   const modalStyle = shown
-    ? { opacity: 1, visibility: 'visible', zIndex: 5 }
+    ? { opacity: 1, visibility: 'visible' }
     : { opacity: 0, visibility: 'hidden' };
   
   return (
@@ -22,15 +21,17 @@ const InputModal = ({
     >
       <div className={styles.background} onClick={close}></div>
       <div className={styles.modal}>
-        <h2>New {type}</h2>
-        <p>{text}</p>
+        <h2 className={styles.header}>New {type}</h2>
         <Input 
           type={type}
           add={add}
           close={close}
         />
-        <button onClick={close}>
-          Close
+        <button 
+          onClick={close}
+          className={styles.close}
+        >
+          &#x2715;
         </button>
       </div>
     </div>

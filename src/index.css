@@ -13,6 +13,7 @@ code {
 }
 
 :root {
+  --red: #d56;
   --orange: #ffaf7b;
   --darkorange: #d76d77;
   --purple: #302b63;
@@ -22,5 +23,5 @@ code {
   --gradient-vert: linear-gradient(180deg, var(--darkpurple), var(--purple));
   --gradient-horiz: linear-gradient(90deg, var(--darkpurple), var(--purple));
   --gradient-landing: linear-gradient(15deg, #0f0c29,var(--purple));
-  --shadow1: 0 2px 6px #ddd;
+  --shadow1: 0 2px 8px #ddd,0 0 0 1px rgba(0,0,0,0.03);
 }

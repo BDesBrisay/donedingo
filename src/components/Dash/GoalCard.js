@@ -16,7 +16,7 @@ const GoalCard = ({
     }
   >
     <h4>{goal.title}</h4>
-    <p>{formatDistanceToNow(new Date(goal.createdAt))}</p>
+    <span>{formatDistanceToNow(new Date(goal.createdAt))} ago</span>
   </div>
 );
 
