@@ -8,7 +8,8 @@ const InputModal = ({
   shown,
   type,
   add,
-  close
+  close,
+  id
 }) => {
   const modalStyle = shown
     ? { opacity: 1, visibility: 'visible' }
@@ -26,6 +27,7 @@ const InputModal = ({
           type={type}
           add={add}
           close={close}
+          id={id}
         />
         <button 
           onClick={close}

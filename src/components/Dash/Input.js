@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { getUser } from '../../utils/userState';
+import randomId from '../../utils/randomId';
 import withContext from '../Context/withContext';
 import styles from './Input.module.css';
 
@@ -24,23 +25,25 @@ class Input extends React.Component {
         context,
         add,
         type,
-        close
+        close,
+        id
       } = this.props;
       const { createPost } = context;
       const { value } = this.state;
 
-      console.log(value, !!value)
       if (!value) throw new Error('No Title');
 
+      const createdAt = new Date().toUTCString();
       const post = {
+        id: randomId(),
         title: value,
-        createdAt: new Date().toUTCString(),
-        createdBy: this.user.id
+        createdBy: this.user.id,
+        createdAt,
       };
       add && add(post);
 
       const res = await createPost({
-        id: this.user.id,
+        id,
         type, 
         post
       });
