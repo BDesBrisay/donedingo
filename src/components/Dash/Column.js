@@ -13,10 +13,27 @@ class Column extends React.Component {
     showModal: false
   }
 
-  async componentDidMount() {
-    this.setState({ loading: true });
+  componentDidMount() {
+    const { disabled } = this.props;
+    if (!disabled) this.updateItems();
+  }
+
+  componentDidUpdate(oldProps) {
+    const { disabled, id } = this.props;
+    const newId = id !== oldProps.id;
+    if (!disabled && (disabled !== oldProps.disabled || newId)) {
+      this.updateItems();
+    }
+  }
+
+  updateItems = async () => {
+    this.setState({ 
+      loading: true, 
+      active: -1 
+    });
 
     const {
+      id,
       user,
       type,
       context: { getPosts }
@@ -25,7 +42,7 @@ class Column extends React.Component {
     this.user = user;
 
     const items = await getPosts({
-      id: user.id,
+      id,
       type
     });
 
@@ -44,6 +61,9 @@ class Column extends React.Component {
   selectGoal = (id) => {
     const active = this.state.active === id ? -1 : id;
     this.setState({ active });
+
+    const { setId = () => {} } = this.props;
+    setId(active);
   }
 /*
   remove = async (post) => {
@@ -71,17 +91,24 @@ class Column extends React.Component {
   }
 */
 
-  toggleModal = () => {
-    this.setState({
-      showModal: !this.state.showModal
-    });
+  toggleModal = (type) => {
+    const newShow = !this.state.showModal;
+    if (newShow) {
+      // this.refs.modal.input.field.focus();
+      const input = document.getElementById(`input-${type}`);
+      if (input) input.click();
+      console.log('FOCUSED', input, type);
+    }
+    this.setState({ showModal: newShow });
   }
 
   render() {
     const {
       type,
       title,
-      CardComponent
+      CardComponent,
+      disabled,
+      id
     } = this.props;
     const { 
       items = [],
@@ -90,11 +117,9 @@ class Column extends React.Component {
       active,
     } = this.state;
 
-    console.log(active, items)
-
     return (
       <div 
-        className={active === -1
+        className={(active === -1 || disabled)
           ? styles.col
           : styles.activeCol
         }
@@ -104,8 +129,9 @@ class Column extends React.Component {
             {title}
           </h1>
           <button 
-            onClick={this.toggleModal}
+            onClick={() => this.toggleModal(type)}
             className={styles.createButton}
+            disabled={disabled}
           >
             &#xFF0B;
           </button>
@@ -113,21 +139,22 @@ class Column extends React.Component {
         <InputModal
           shown={showModal}
           add={this.add}
-          close={this.toggleModal}
+          close={() => this.toggleModal(type)}
           type={type}
+          id={id}
         />
         {loading
           ? <h4>Loading...</h4>
-          : items.length
-            ? items.map((item, i) => (
+          : (disabled || !items.length)
+            ? <h4>No items to show</h4>
+            : items.map((item, i) => (
                 <CardComponent
                   key={i}
                   goal={item}
-                  select={() => this.selectGoal(i)}
-                  active={this.state.active === i}
+                  select={() => this.selectGoal(item.id)}
+                  active={this.state.active === item.id}
                 />
               ))
-            : <h4>No items to show</h4>
         }
       </div>
     )

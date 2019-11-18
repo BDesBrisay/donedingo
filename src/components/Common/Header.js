@@ -12,8 +12,6 @@ class Header extends React.Component {
   render() {
     const { page } = this.props;
 
-    console.log(this.user)
-
     return (
       <header className={styles.header}>
         <img 
