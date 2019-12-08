@@ -1,4 +1,4 @@
-export default async function createPost({
+async function createPost({
   posts, 
   post = {},
   id
@@ -32,3 +32,5 @@ export default async function createPost({
     return false;
   }
 }
+
+export default createPost;

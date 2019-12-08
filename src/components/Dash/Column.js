@@ -65,18 +65,25 @@ class Column extends React.Component {
     const { setId = () => {} } = this.props;
     setId(active);
   }
-/*
+
   remove = async (post) => {
     const { items } = this.state;
-    const { context } = this.props;
+    const { context, type, id } = this.props;
     const { deletePost = () => {} } = context;
 
-    const newItems = items.filter((item) => item.value !== post.value);
+    const newItems = items.filter((item) => item.createdAt !== post.createdAt);
     this.setState({ items: newItems });
 
-    await deletePost(post.createdAt, this.user.id);
+    console.log(type)
+
+    await deletePost({ 
+      createdAt: post.createdAt,
+      id,
+      type
+    });
   }
 
+/*
   check = async (post, i) => {
     const { items } = this.state;
     const { context} = this.props;
@@ -153,6 +160,7 @@ class Column extends React.Component {
                   goal={item}
                   select={() => this.selectGoal(item.id)}
                   active={this.state.active === item.id}
+                  del={() => this.remove(item, id)}
                 />
               ))
         }

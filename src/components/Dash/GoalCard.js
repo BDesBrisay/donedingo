@@ -6,7 +6,9 @@ import styles from './GoalCard.module.css';
 const GoalCard = ({ 
   goal = {}, 
   select, 
-  active 
+  active,
+  del = () => {},
+  type
 }) => (
   <div 
     onClick={select}
@@ -17,6 +19,16 @@ const GoalCard = ({
   >
     <h4>{goal.title}</h4>
     <span>{formatDistanceToNow(new Date(goal.createdAt))} ago</span>
+    <button 
+      onClick={(e = window.event) => {
+        e.cancelBubble = true;
+        if (e.stopPropagation) e.stopPropagation();
+        
+        del(goal.createdAt);
+      }}
+    >
+      X
+    </button>
   </div>
 );
 

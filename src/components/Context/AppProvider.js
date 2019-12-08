@@ -5,6 +5,7 @@ import 'firebase/firestore';
 
 import userAuth from '../../firebase/userAuth';
 import createPost from '../../firebase/createPost';
+import deletePost from '../../firebase/deletePost';
 import getPosts from '../../firebase/getPosts';
 
 // Create React instance of context
@@ -59,11 +60,16 @@ export class AppProvider extends React.Component {
       getPosts: async ({ type, id }) => await getPosts({
         posts: this.dbFromType(type),
         id
-      })
+      }),
+      deletePost: async ({ type, createdAt, id }) => await deletePost({ 
+        posts: this.dbFromType(type), 
+        createdAt, 
+        id 
+      }),
     }
   }
 
-  dbFromType = (type) => {
+  dbFromType = (type = '') => {
     const first = type.charAt(0).toUpperCase();
     if (first === 'G') return this.state.goals;
     if (first === 'P') return this.state.plans;
