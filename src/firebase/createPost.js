@@ -11,16 +11,13 @@ async function createPost({
       const data = await get.data();
       const { items = [] } = data;
 
+      // add post to existing posts
       items.push(post);
       doc.set({ items });
-
-      console.log(items)
 
       return items;
     }
     else {
-      console.log(post)
-
       const emptyDoc = { items: [ post ] };
       await doc.set(emptyDoc);
       

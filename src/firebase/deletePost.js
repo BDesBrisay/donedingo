@@ -8,11 +8,8 @@ async function deletePost({
   const items = await getPosts({ posts, id });
   const doc = posts.doc(id);
 
-  console.log(items)
-
+  // filter array to remove post
   const newItems = items.filter((item) => item.createdAt !== createdAt);
-
-  console.log(newItems, createdAt)
 
   doc.set({ items: newItems });
 

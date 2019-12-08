@@ -83,20 +83,18 @@ class Column extends React.Component {
     });
   }
 
-/*
-  check = async (post, i) => {
+  check = async (post, index) => {
     const { items } = this.state;
-    const { context} = this.props;
-    const { completePost = () => {} } = context;
+    const { context, id } = this.props;
+    const { checkTask = () => {} } = context;
 
-    post.done = !post.done;
-    items[i] = post;
+    post.checked = !post.checked;
+    items[index] = post;
 
     this.setState({ items });
 
-    await completePost(i, this.user.id);
+    await checkTask({ index, id });
   }
-*/
 
   toggleModal = (type) => {
     const newShow = !this.state.showModal;
@@ -161,6 +159,7 @@ class Column extends React.Component {
                   select={() => this.selectGoal(item.id)}
                   active={this.state.active === item.id}
                   del={() => this.remove(item, id)}
+                  check={() => this.check(item, i)}
                 />
               ))
         }

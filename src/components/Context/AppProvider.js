@@ -7,6 +7,7 @@ import userAuth from '../../firebase/userAuth';
 import createPost from '../../firebase/createPost';
 import deletePost from '../../firebase/deletePost';
 import getPosts from '../../firebase/getPosts';
+import checkTask from '../../firebase/checkTask';
 
 // Create React instance of context
 export const AppContext = React.createContext();
@@ -64,6 +65,11 @@ export class AppProvider extends React.Component {
       deletePost: async ({ type, createdAt, id }) => await deletePost({ 
         posts: this.dbFromType(type), 
         createdAt, 
+        id 
+      }),
+      checkTask: async ({ index, id }) => await checkTask({ 
+        posts: tasks, 
+        index, 
         id 
       }),
     }
