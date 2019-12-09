@@ -8,6 +8,7 @@ import createPost from '../../firebase/createPost';
 import deletePost from '../../firebase/deletePost';
 import getPosts from '../../firebase/getPosts';
 import checkTask from '../../firebase/checkTask';
+import getStats from '../../firebase/getStats';
 
 // Create React instance of context
 export const AppContext = React.createContext();
@@ -72,6 +73,12 @@ export class AppProvider extends React.Component {
         index, 
         id 
       }),
+      getStats: async ({ id }) => await getStats({
+        goals,
+        plans,
+        tasks,
+        id
+      })
     }
   }
 
