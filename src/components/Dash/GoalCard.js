@@ -15,10 +15,13 @@ const GoalCard = ({
       ? styles.active
       : styles.contain
     }
-  >
-    <h4>{goal.title}</h4>
-    <span>{formatDistanceToNow(new Date(goal.createdAt))} ago</span>
+  > 
+    <div className={styles.text}>
+      <h4>{goal.title}</h4>
+      <span>{formatDistanceToNow(new Date(goal.createdAt))} ago</span>
+    </div>
     <button 
+      className={styles.delete}
       onClick={(e = window.event) => {
         e.cancelBubble = true;
         if (e.stopPropagation) e.stopPropagation();

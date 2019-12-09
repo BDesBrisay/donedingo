@@ -12,14 +12,19 @@ const TaskCard = ({
     onClick={check}
     className={styles.contain}
   >
-    <input 
+    <input
+      className={styles.input}
       type="checkbox"
       checked={goal.checked}
       onChange={() => {}}
     />
-    <h4>{goal.title}</h4>
-    <span>{formatDistanceToNow(new Date(goal.createdAt))} ago</span>
-    <button 
+    <div className={styles.checkmark}></div>
+    <div className={styles.text}>
+      <h4 style={goal.checked ? { textDecoration: 'line-through', color: 'green' } : {}}>{goal.title}</h4>
+      <span>{formatDistanceToNow(new Date(goal.createdAt))} ago</span>
+    </div>
+    <button
+      className={styles.delete}
       onClick={(e = window.event) => {
         e.cancelBubble = true;
         if (e.stopPropagation) e.stopPropagation();
