@@ -13,7 +13,7 @@ const App = () => (
       <Route path="/" exact component={Landing} />
       <AuthRoute path="/Dash" exact component={Dash} />
       <AuthRoute path="/Profile" exact component={Profile} />
-      <Route path="/Tests" exact component={Tests} />
+      <AuthRoute path="/Tests" exact component={Tests} />
     </div>
   </BrowserRouter>
 );
