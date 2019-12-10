@@ -40,8 +40,10 @@ class Input extends React.Component {
         createdBy: this.user.id,
         createdAt,
       };
-      add && add(post);
 
+      if (type === 'Task') post.checked = true;
+
+      add && add(post);
       const res = await createPost({
         id,
         type, 

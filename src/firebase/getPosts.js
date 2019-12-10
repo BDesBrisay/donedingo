@@ -18,7 +18,7 @@ export default async function getPosts({
     }
   }
   catch (e) {
-    console.error(e);
-    return [];
+    console.log(e);
+    return false;
   }
 }

@@ -6,6 +6,7 @@ import { getUser } from '../../utils/userState';
 import Header from '../Common/Header';
 import Column from './Column';
 import GoalCard from './GoalCard';
+import TaskCard from './TaskCard';
 
 const Dash = ({ history }) => {
   const [ col, setCol ] = useState(0);
@@ -49,7 +50,7 @@ const Dash = ({ history }) => {
           user={user}
           title="Tasks"
           type="Task"
-          CardComponent={GoalCard}
+          CardComponent={TaskCard}
           disabled={col < 2}
           id={plan}
         />

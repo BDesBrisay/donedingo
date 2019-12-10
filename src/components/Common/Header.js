@@ -21,8 +21,8 @@ class Header extends React.Component {
         />
         {page === 'profile'
           ? <Link to="/Dash">
-              <button>
-                Home
+              <button className={styles.profile}>
+                <span role="img" aria-label="jsx-ally/accessible-emoji">&#x1f3e1;</span>
               </button>
             </Link>
           : <Link to="/Profile">

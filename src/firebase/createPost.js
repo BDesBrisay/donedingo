@@ -1,4 +1,4 @@
-export default async function createPost({
+async function createPost({
   posts, 
   post = {},
   id
@@ -11,16 +11,13 @@ export default async function createPost({
       const data = await get.data();
       const { items = [] } = data;
 
+      // add post to existing posts
       items.push(post);
       doc.set({ items });
-
-      console.log(items)
 
       return items;
     }
     else {
-      console.log(post)
-
       const emptyDoc = { items: [ post ] };
       await doc.set(emptyDoc);
       
@@ -32,3 +29,5 @@ export default async function createPost({
     return false;
   }
 }
+
+export default createPost;
