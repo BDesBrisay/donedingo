@@ -8,13 +8,15 @@ import userAuthTest from '../../tests/userAuthTest';
 import getPostsTest from '../../tests/getPostsTest';
 import createPostTest from '../../tests/createPostTest';
 import deletePostTest from '../../tests/deletePostTest';
+import checkTaskTest from '../../tests/checkTaskTest';
 
 class Tests extends React.Component {
   state = {
     userAuth: undefined,
     getPosts: undefined,
     createPost: undefined,
-    deletePost: undefined
+    deletePost: undefined,
+    checkTask: undefined
   }
 
   componentDidMount() {
@@ -26,7 +28,8 @@ class Tests extends React.Component {
       history,
       context: { 
         users, 
-        goals, 
+        goals,
+        tasks,
         firebase 
       }
     } = this.props;
@@ -51,6 +54,10 @@ class Tests extends React.Component {
     const deletePost = await deletePostTest({ posts: goals });
     this.setState({ deletePost });
 
+    // CHECK TASK TEST
+    const checkTask = await checkTaskTest({ posts: tasks });
+    this.setState({ checkTask });
+
     // signOut(firebase, history);
   }
 
@@ -60,7 +67,8 @@ class Tests extends React.Component {
       userAuth,
       getPosts,
       createPost,
-      deletePost
+      deletePost,
+      checkTask
     } = this.state;
 
     return (
@@ -87,6 +95,11 @@ class Tests extends React.Component {
         {deletePost !== undefined &&
           <div>
             <p>Delete Post Test: <Indicator val={deletePost} /></p>
+          </div>
+        }
+        {checkTask !== undefined &&
+          <div>
+            <p>Check Task Test: <Indicator val={checkTask} /></p>
           </div>
         }
         <p>Loading...</p>
