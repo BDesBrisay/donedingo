@@ -38,12 +38,8 @@ class Tests extends React.Component {
     } = this.props;
 
     // USER AUTH TEST
-    const userAuth = await userAuthTest({ 
-      users, 
-      signOut: () => signOut(firebase, history) 
-    });
+    const userAuth = await userAuthTest({ users });
     this.setState({ userAuth });
-
 
     // GET POSTS TEST
     const getPosts = await getPostsTest({ posts: goals });
@@ -64,12 +60,10 @@ class Tests extends React.Component {
     // GET STATS TEST
     const getStats = await getStatsTest({ goals, plans, tasks });
     this.setState({ getStats });
-
-    // signOut(firebase, history);
   }
 
   render() {
-    const { history } = this.props;
+    const { history, firebase } = this.props;
     const { 
       userAuth,
       getPosts,
@@ -82,8 +76,8 @@ class Tests extends React.Component {
     return (
       <div>
         <h1>Firebase DB Tests</h1>
-        <button onClick={() => history.goBack()}>
-          Back
+        <button onClick={() => signOut(firebase, history) }>
+          Sign Out
         </button>
         {userAuth !== undefined &&
           <div>
