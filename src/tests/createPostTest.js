@@ -1,22 +1,25 @@
-import getPosts from '../firebase/getPosts';
+import createPost from '../firebase/createPost';
 
-async function getPostsTest({ posts }) {
+async function createPostTest({ posts }) {
   try {
     let passed = 0;
+    const post = { title: 'TEST POST' };
 
     // test with valid id
-    const one = await getPosts({
+    const one = await createPost({
       posts,
-      id: '116974840912269369445' 
+      post,
+      id: 'TEST-ID' 
     });
 
     // test with invalid id
-    const two = await getPosts({
+    const two = await createPost({
       posts,
+      post,
       id: ''
     });
 
-    if (typeof one === 'object') passed++;
+    if (typeof one === 'object' && one.length) passed++;
     if (typeof two === 'boolean') passed++;
 
     console.log('Passed ', passed, ' out of 2 tests');
@@ -29,4 +32,4 @@ async function getPostsTest({ posts }) {
   }
 }
 
-export default getPostsTest;
+export default createPostTest;

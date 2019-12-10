@@ -15,16 +15,13 @@ async function userAuthTest({ users }) {
       }
     });
 
-    if (typeof one === 'object') passed++;
-
-    console.log('ONE', typeof one)
-
     // test with invalid user
     const two = await userAuth({
       users,
       user: ['two']
     });
-
+    
+    if (typeof one === 'object') passed++;
     if (typeof two === 'boolean') passed++;
 
     console.log('Passed ', passed, ' out of 2 tests');
