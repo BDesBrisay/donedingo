@@ -9,7 +9,7 @@ async function createPostTest({ posts }) {
     const one = await createPost({
       posts,
       post,
-      id: 'TEST-ID' 
+      id: 'TEST-CREATE-ID' 
     });
 
     // test with invalid id
