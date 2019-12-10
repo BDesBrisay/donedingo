@@ -5,15 +5,21 @@ async function deletePost({
   createdAt,
   id
 }) {
-  const items = await getPosts({ posts, id });
-  const doc = posts.doc(id);
+  try {
+    const items = await getPosts({ posts, id });
+    const doc = posts.doc(id);
 
-  // filter array to remove post
-  const newItems = items.filter((item) => item.createdAt !== createdAt);
+    // filter array to remove post
+    const newItems = items.filter((item) => item.createdAt !== createdAt);
 
-  doc.set({ items: newItems });
+    doc.set({ items: newItems });
 
-  return true;
+    return true;
+  }
+  catch (e) {
+    console.error(e);
+    return false;
+  } 
 }
 
 export default deletePost;

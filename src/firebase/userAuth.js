@@ -29,7 +29,8 @@ async function userAuth({ users, user = {} }) {
     }
   }
   catch (e) {
-    console.error(e);
+    console.log(e);
+    return false;
   }
 }
 
