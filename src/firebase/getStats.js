@@ -32,7 +32,8 @@ async function getStats({
         posts: tasks,
         id: plan.id
       });
-
+      
+      // eslint-disable-next-line
       for (let task of ts) {
         counts.tasks++;
       }

@@ -20,6 +20,11 @@
   height: 40px;
   width: 40px;
   border-radius: 20px;
+  background: var(--darkpurple);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 @media screen and (min-width: 420px) {

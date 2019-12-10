@@ -10,6 +10,7 @@ import Header from '../Common/Header';
 class Profile extends React.Component {
   firebase = this.props.context.firebase
   user = getUser()
+  mounted = true
   state = {
     stats: ''
   }
@@ -17,7 +18,11 @@ class Profile extends React.Component {
   async componentDidMount() {
     const { context: { getStats = () => {} } } = this.props;
     const stats = await getStats({ id: this.user.id });
-    this.setState({ stats });
+    if (this.mounted) this.setState({ stats });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   render() {
