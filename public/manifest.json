@@ -1,15 +1,17 @@
 {
-  "short_name": "Donedingo",
   "name": "Donedingo",
+  "short_name": "Donedingo",
+  "start_url": "https://donedingo.herokuapp.com/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#ffaf7b",
+  "background_color": "#161153",
+  "orientation": "any",
   "icons": [
     {
       "src": "favicon.png",
       "sizes": "512x512 256x256 192x192 128x128 64x64 32x32 24x24 16x16",
       "type": "image/png"
     }
-  ],
-  "start_url": "/",
-  "display": "standalone",
-  "theme_color": "#ffaf7b",
-  "background_color": "#161153"
+  ]
 }
