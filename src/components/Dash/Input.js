@@ -13,6 +13,10 @@ class Input extends React.Component {
 
   user = getUser()
 
+  componentDidMount() {
+    this.input && this.input.focus();
+  }
+
   onChange = (e) => {
     this.setState({ value: e.target.value });
   }
@@ -41,7 +45,7 @@ class Input extends React.Component {
         createdAt,
       };
 
-      if (type === 'Task') post.checked = true;
+      if (type === 'Task') post.checked = false;
 
       add && add(post);
       const res = await createPost({
@@ -74,12 +78,13 @@ class Input extends React.Component {
         className={styles.contain}
       >
         <input
+          ref={(el) => this.input = el}
           value={value}
           placeholder={`${type} Title`}
           onChange={this.onChange}
-          autoFocus={true}
           id={`input-${type}`}
           className={styles.input}
+          autoFocus
         />
         {err && 
           <p className={styles.error}>

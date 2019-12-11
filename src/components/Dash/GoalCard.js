@@ -29,7 +29,7 @@ const GoalCard = ({
         del(goal.createdAt);
       }}
     >
-      X
+      &#x2715;
     </button>
   </div>
 );

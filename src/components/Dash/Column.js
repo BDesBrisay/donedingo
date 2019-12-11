@@ -74,8 +74,6 @@ class Column extends React.Component {
     const newItems = items.filter((item) => item.createdAt !== post.createdAt);
     this.setState({ items: newItems });
 
-    console.log(type)
-
     await deletePost({ 
       createdAt: post.createdAt,
       id,
@@ -96,15 +94,8 @@ class Column extends React.Component {
     await checkTask({ index, id });
   }
 
-  toggleModal = (type) => {
-    const newShow = !this.state.showModal;
-    if (newShow) {
-      // this.refs.modal.input.field.focus();
-      const input = document.getElementById(`input-${type}`);
-      if (input) input.click();
-      console.log('FOCUSED', input, type);
-    }
-    this.setState({ showModal: newShow });
+  toggleModal = () => {
+    this.setState({ showModal: !this.state.showModal });
   }
 
   render() {
@@ -134,7 +125,7 @@ class Column extends React.Component {
             {title}
           </h1>
           <button 
-            onClick={() => this.toggleModal(type)}
+            onClick={this.toggleModal}
             className={styles.createButton}
             disabled={disabled}
           >
@@ -144,7 +135,7 @@ class Column extends React.Component {
         <InputModal
           shown={showModal}
           add={this.add}
-          close={() => this.toggleModal(type)}
+          close={this.toggleModal}
           type={type}
           id={id}
         />

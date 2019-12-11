@@ -27,13 +27,11 @@ class Tests extends React.Component {
 
   async runTests() {
     const {
-      history,
       context: { 
         users, 
         goals,
         plans,
-        tasks,
-        firebase 
+        tasks
       }
     } = this.props;
 
