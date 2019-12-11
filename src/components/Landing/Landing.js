@@ -87,7 +87,7 @@ class Landing extends React.Component {
             alt=""
           />
           <h1 className={styles.logo}>Donedingo</h1>
-          <p className={styles.tagline}>Your private personal project tracker.</p>
+          <p className={styles.tagline}>Your private personal project planner.</p>
           {this.state.private && 
             <h4 className={styles.errorMsg}>
               Private browsing may cause problems with sign in!

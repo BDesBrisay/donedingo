@@ -16,6 +16,8 @@
   justify-content: space-between;
   height: calc(100% - 70px);
   width: 100%;
+  flex-direction: column;
+  overflow: auto;
 }
 .col {
   flex: 1;
@@ -28,6 +30,7 @@
   justify-content: flex-start;
   overflow: hidden;
   overflow-y: auto;
+  width: 100%;
 }
 .col:nth-child(1) {
   background: linear-gradient(180deg, #f0f4f8, white);
@@ -45,6 +48,14 @@
   margin: 8px;
 }
 
+@media screen and (min-width: 575px) {
+  .grid {
+    flex-direction: row;
+  }
+  .col {
+    width: calc(100% / 3);
+  }
+}
 @media screen and (min-width: 1024px) {
   .contain {
     flex-direction: row;
