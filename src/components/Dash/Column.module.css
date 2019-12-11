@@ -11,6 +11,7 @@
   border-right: 1px solid transparent;
   transition: all 0.4s;
   width: 100%;
+  overflow-x: hidden;
 }
 .col:nth-child(1) {
   background: linear-gradient(180deg, #f0f4f8, white);
